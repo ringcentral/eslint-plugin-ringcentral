@@ -1,5 +1,5 @@
 const RuleTester = require('eslint').RuleTester;
-const rule = require('../../lib').rules['specified-comment-with-jira-task-id'];
+const rule = require('../../lib/rules/specified-comment-with-jira-task-id');
 
 const ruleTester = new RuleTester();
 const error = 'Please specify comment with JIRA task id';
