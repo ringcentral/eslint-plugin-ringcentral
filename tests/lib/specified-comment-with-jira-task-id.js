@@ -2,7 +2,9 @@ const RuleTester = require('eslint').RuleTester;
 const rule = require('../../lib/rules/specified-comment-with-jira-task-id');
 
 const ruleTester = new RuleTester();
-const error = 'Please specify comment with JIRA task id';
+const error = {
+    messageId: 'specifyComment'
+};
 
 ruleTester.run('specified-comment-with-jira-task-id', rule, {
     valid: [
@@ -12,29 +14,29 @@ ruleTester.run('specified-comment-with-jira-task-id', rule, {
         '// FIXME RLZ-12345',
         '// fixme RLZ-12345 ',
         '// FIXME [RLZ-12345]',
-        '// TODO RLZ-12345 explanation',
-        '// FIXME RLZ-12345 explanation',
+        '// TODO RLZ-12345 summary',
+        '// FIXME RLZ-12345 summary',
         '/* TODO \n some comment \n UIA-98765 */'
     ],
     invalid: [
         {
-            code: '// TODO explanation',
+            code: '// TODO summary',
             errors: [error]
         },
         {
-            code: '// FIXME explanation',
+            code: '// FIXME summary',
             errors: [error]
         },
         {
-            code: '// todo explanation',
+            code: '// todo summary',
             errors: [error]
         },
         {
-            code: '// fixme explanation',
+            code: '// fixme summary',
             errors: [error]
         },
         {
-            code: '/* TODO \n explanation */',
+            code: '/* TODO \n summary */',
             errors: [error]
         }
     ]
