@@ -13,7 +13,7 @@ $ npm i eslint --save-dev
 Next, install `eslint-plugin-ringcentral`:
 
 ```
-$ npm install eslint-plugin-ringcentral --save-dev
+$ npm i eslint-plugin-ringcentral --save-dev
 ```
 
 **Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-ringcentral` globally.
@@ -24,9 +24,10 @@ Add `ringcentral` to the plugins section of your `.eslintrc` configuration file.
 
 ```json
 {
-    "plugins": [
-        "ringcentral"
-    ]
+    "plugins": ["ringcentral"],
+    "extends": ["plugin:ringcentral/error"],
+    // or
+    "extends": ["plugin:ringcentral/warn"]
 }
 ```
 
