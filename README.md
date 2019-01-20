@@ -25,9 +25,9 @@ Add `ringcentral` to the plugins section of your `.eslintrc` configuration file.
 ```json
 {
     "plugins": ["ringcentral"],
-    "extends": ["plugin:ringcentral/error"],
+    "extends": ["plugin:ringcentral/all"],
     // or
-    "extends": ["plugin:ringcentral/warn"]
+    "extends": ["plugin:ringcentral/all-warn"]
 }
 ```
 
