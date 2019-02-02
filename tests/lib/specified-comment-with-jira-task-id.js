@@ -8,15 +8,15 @@ const error = {
 
 ruleTester.run('specified-comment-with-jira-task-id', rule, {
     valid: [
-        '// TODO RLZ-12345',
-        '// todo RLZ-12345 ',
         '// TODO [RLZ-12345]',
-        '// FIXME RLZ-12345',
-        '// fixme RLZ-12345 ',
+        '// todo [RLZ-12345]',
+        '// fixme [RLZ-12345]',
         '// FIXME [RLZ-12345]',
-        '// TODO RLZ-12345 summary',
-        '// FIXME RLZ-12345 summary',
-        '/* TODO \n some comment \n UIA-98765 */'
+        '// TODO [RLZ-12345] summary',
+        '// FIXME [RLZ-12345] summary',
+        '/* TODO \n some comment \n [UIA-98765] */',
+        '// TODO (username) summary',
+        '// FIXME (username) summary'
     ],
     invalid: [
         {
@@ -38,7 +38,11 @@ ruleTester.run('specified-comment-with-jira-task-id', rule, {
         {
             code: '/* TODO \n summary */',
             errors: [error]
-        }
+        },
+        {
+            code: '// TODO () summary',
+            errors: [error]
+        },
     ]
 });
 
