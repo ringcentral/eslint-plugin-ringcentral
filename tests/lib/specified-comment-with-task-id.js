@@ -1,12 +1,12 @@
 const RuleTester = require('eslint').RuleTester;
-const rule = require('../../lib/rules/specified-comment-with-jira-task-id');
+const rule = require('../../lib/rules/specified-comment-with-task-id');
 
 const ruleTester = new RuleTester();
 const error = {
     messageId: 'specifyComment'
 };
 
-ruleTester.run('specified-comment-with-jira-task-id', rule, {
+ruleTester.run('specified-comment-with-task-id', rule, {
     valid: [
         '// TODO [RLZ-12345]',
         '// todo [RLZ-12345]',
