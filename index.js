@@ -13,5 +13,10 @@ module.exports = {
                 'ringcentral/specified-comment-with-task-id': 1,
             },
         },
+        recommended: {
+            rules: {
+                'ringcentral/specified-comment-with-task-id': 1,
+            },
+        },
     }
 };
